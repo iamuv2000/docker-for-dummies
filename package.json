@@ -1,0 +1,21 @@
+{
+  "name": "Docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamuv2000/docker-for-dummies.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamuv2000/docker-for-dummies/issues"
+  },
+  "homepage": "https://github.com/iamuv2000/docker-for-dummies#readme"
+}
