@@ -1,0 +1,18 @@
+Caching in Docker
+In docker, if the lines have been executed before, 
+the same lines if ran again will run faster due to the concept of caching.
+
+In case somewhere in the middle a new line is added then till the new line
+cache will be used and then everything after that line will be executed again.
+
+----
+
+For each line a new container is made and destroyed. That is the temporary container
+
+----
+Providing a custom name for the container
+
+ //   docker build -t iamuv2000/mymongo:latest .
+
+ ----
+ 
