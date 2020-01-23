@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/iamuv2000/docker-for-dummies/issues"
   },
-  "homepage": "https://github.com/iamuv2000/docker-for-dummies#readme"
+  "homepage": "https://github.com/iamuv2000/docker-for-dummies#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

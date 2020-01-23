@@ -14,5 +14,17 @@ Providing a custom name for the container
 
  //   docker build -t iamuv2000/mymongo:latest .
 
- ----
- 
+----
+Node with docker!
+//    COPY ./ ./ 
+ This will copy all the contents of the directory to the container's working directory
+
+ //    docker build -t iamuv2000/nodeapptest
+
+ This will build the application and name the container as "iamuv2000/nodeapptest"
+
+ //   docker run -p <my_port>:<container_port> iamuv2000/nodeapptest
+
+Opening <my_port> to the <container_port>. Only <my_port> will now be able to access the 
+container's <container_port>
+
