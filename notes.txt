@@ -31,3 +31,16 @@ Node with docker!
 Opening <my_port> to the <container_port>. Only <my_port> will now be able to access the 
 container's <container_port>
 
+----
+Docker Compose
+This allows you to have multiple containers in one container and run it all simultaneously!
+
+"docker-compose.yml" -> File for configuration of multiple containers
+
+docker-compose.yml
+version -> which version are we using
+services-> how many containers you want, and what do you want to call them?
+
+
+//  docker-compose up --build
+Builds the docker-compose and runs it (--build)

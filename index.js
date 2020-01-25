@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const DATABASE = "mongodb://localhost:27017/test"
+const DATABASE = "mongodb://mymongo:27017/test" 
+/*mongodb://<name-of-mongo-contianer>:27017/test*/
 
 mongoose
     .connect(DATABASE)
