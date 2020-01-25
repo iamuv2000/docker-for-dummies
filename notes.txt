@@ -1,3 +1,6 @@
+Display all docker containers that are running
+//      docker ps
+---
 Caching in Docker
 In docker, if the lines have been executed before, 
 the same lines if ran again will run faster due to the concept of caching.
