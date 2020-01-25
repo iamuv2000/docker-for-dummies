@@ -44,3 +44,16 @@ services-> how many containers you want, and what do you want to call them?
 
 //  docker-compose up --build
 Builds the docker-compose and runs it (--build)
+
+--- 
+Working with docker repositories
+
+• docker-compose (multiple containers)
+//  docker-compose build --pull
+This will generate the image of the master container, ie, one container that holds the
+various containers. Let the name of the container be "my_docker_container"
+
+//  docker tag my_docker_container <username>/<repo-name>
+
+//  docker push <username>/<repo-name>
+
