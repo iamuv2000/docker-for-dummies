@@ -57,3 +57,198 @@ various containers. Let the name of the container be "my_docker_container"
 
 //  docker push <username>/<repo-name>
 
+-----
+####
+####
+----
+Docker
+
+Docker makes it really easy to install and run software without worrying about setup or dependencies
+
+IMAGE
+An image is a single file with all the dependencies and configuration required to run a program
+
+CONTAINER
+Instance of an image that runs a program
+
+DOCKER CLIENT (DOCKER CLI)
+Tool that we are going to issue commands to
+
+DOCKER SERVER (DOCKER DAEMON)
+Tool that is responsible for creating and running containers etc
+——
+
+DOCKER COMMANDS
+docker run <container-name> <alt-command to run inside the container once it is run>
+
+Eg: docker run busybox echo hi there
+
+docker run busybox ls (once the busy box container is run, run the ‘ls’ command in the container) 
+
+#LIST ALL RUNNING CONTAINERS
+docker ps
+
+#LIST ALL CONTAINERS EVER CREATED
+docker ps —all
+
+#RESTARTING STOPPED CONTAINER
+docker start -a <container-id>
+-a flag is for giving output
+
+#REMOVING STOPPED CONTAINERS
+docker system prune
+
+#RETREIVING OUTPUT LOGS
+docker logs <container-id>
+
+#STOPPING CONTAINERS
+docker stop <container-id>
+docker kill <container-id>
+
+#EXECUTING COMMANDS IN RUNNING CONTAINERS
+docker exec -it <container-id> <command>
+exec -> execute an additional command in a container
+it flag -> Allows input output in the container’s application terminal
+
+#GETTING DOCKER SHELL
+docker exec -it <container-id> sh
+
+—
+
+docker run = docker create + docker start
+
+——
+
+#DOCKER FILE
+Contains configuration on how our container should behave
+
+---
+A dockerfile is like giving a person a computer with no operating system on it, and asking the 
+person to install google chrome.
+
+# FROM alpine   //Downloading the operating system!
+                //alpine is the base image
+
+
+======
+UDEMY
+
+Docker
+
+Docker makes it really easy to install and run software without worrying about setup or dependencies
+
+IMAGE
+An image is a single file with all the dependencies and configuration required to run a program
+
+CONTAINER
+Instance of an image that runs a program
+
+DOCKER CLIENT (DOCKER CLI)
+Tool that we are going to issue commands to
+
+DOCKER SERVER (DOCKER DAEMON)
+Tool that is responsible for creating and running containers etc
+——
+
+DOCKER COMMANDS
+docker run <container-name> <alt-command to run inside the container once it is run>
+
+Eg: docker run busybox echo hi there
+
+docker run busybox ls (once the busy box container is run, run the ‘ls’ command in the container) 
+
+#LIST ALL RUNNING CONTAINERS
+docker ps
+
+#LIST ALL CONTAINERS EVER CREATED
+docker ps —all
+
+#RESTARTING STOPPED CONTAINER
+docker start -a <container-id>
+-a flag is for giving output
+
+#REMOVING STOPPED CONTAINERS
+docker system prune
+
+#RETREIVING OUTPUT LOGS
+docker logs <container-id>
+
+#STOPPING CONTAINERS
+docker stop <container-id>
+docker kill <container-id>
+
+#EXECUTING COMMANDS IN RUNNING CONTAINERS
+docker exec -it <container-id> <command>
+exec -> execute an additional command in a container
+it flag -> Allows input output in the container’s application terminal
+
+#GETTING DOCKER SHELL
+docker exec -it <container-id> sh
+
+—
+
+docker run = docker create + docker start
+
+——
+
+For incoming requests TO the container, we require port mapping!
+
+docker run -p 8080:8080 <image_name>
+
+——
+WORKDIR /usr/app
+COPY ./ ./ 
+
+(so all your files are copied into /usr/app)
+
+——
+#Nodejs - minimising cache bursting
+‘’’
+COPY ./package.json ./
+npm install
+COPY ./ ./ 
+‘’’
+
+Every time you change code, you must rebuild docker container. However there would be times when there are times you have only change a bit of logic and added no dependencies, yet it will re-install all dependencies, because it has detected a change in them.
+So we copy the package.json file first, that will only change when dependencies change. If it has not changed, it will use the cached version of dependencies.
+We then copy everything else and rebuild the container.
+
+
+—-
+#DOCKER FILE
+Contains configuration on how our container should behave
+
+----
+
+DOCKER COMPOSE
+
+- A seperate CLI
+
+- Exists to avoid writing repetitive commands used in docker. Like "run" "exec" etc.
+
+- Avoid writing tiny little arguments each time we want to build adn run a container
+
+- It also helps in running multiple containers and automatically connect them together using some
+form of netwroking
+
+TO START DOCKER-COMPOSE
+docker compose up 
+
+TO START DOCKER-COMPOSE AFTER REBUILDING
+docker-compose up --build
+
+TO STOP DOKCER-COMPOSE
+docker compose down
+
+CONTAINER MANTAINENCE WITH COMPOSE
+-> Automatic contianer restarts!
+#Restart policies defined in docker-compose.yml
+
+restart: 'no' => never restart  
+        'always' => restart always  
+        'on-failure' => restart if exit status code != 0
+        'unless-stopped' => Only when the developer forcibly stops it
+
+Container status: docker-compose ps
+
+---

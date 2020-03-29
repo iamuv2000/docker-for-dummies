@@ -1,9 +1,9 @@
-version: "3"
+version: '3'
 services: 
-  mymongo:  #name of the container
-    image: "mongo" #image is pulled
-
-  mynode: #name of the container
-    build: . #build from Dockerfile in the directory '.'
-    ports:
-      - "8000:8000" #<localhost_post>:<docker_port>
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always
+    build: .
+    ports: 
+      - "4001:8081"
