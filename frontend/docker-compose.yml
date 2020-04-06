@@ -10,3 +10,12 @@ services:
     volumes: 
       - /app/node_modules
       - .:/app  #map current folders outside the container to the folders inside the containers
+  #Responsible for running the tests
+  tests:
+    build: 
+      context: . #where do we want all the files and folders for this project to come from (current wokring directory)
+      dockerfile: Dockerfile.dev
+    volumes: 
+      - /app/node_modules
+      - .:/app
+    command: ["npm","run","test"]
