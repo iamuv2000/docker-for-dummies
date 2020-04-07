@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t iamuv2000/docker-for-dummies -f DockerFile.dev . 
+
+script:
+  - docker run -e CI=true iamuv2000/docker-for-dummies npm run test -- --coverage
+  
