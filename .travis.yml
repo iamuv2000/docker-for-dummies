@@ -7,4 +7,17 @@ before_install:
 
 script:
   - docker run -e CI=true iamuv2000/docker-for-dummies npm run test -- --coverage
-  
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: 'docker-react'
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-502279622047"
+  bucket_path: 'docker-react'
+  on: 
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
