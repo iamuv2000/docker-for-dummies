@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/iamuv2000/docker-for-dummies#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "install": "^0.13.0",
     "mongoose": "^5.8.9",
     "redis": "2.8.0"
